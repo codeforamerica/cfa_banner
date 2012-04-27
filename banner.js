@@ -1,5 +1,5 @@
 if(window.onload){
-    var other_onloads = window.onloads;
+    window.other_onloads = window.onloads;
 }
 
 window.onload = function(){
@@ -19,15 +19,16 @@ window.onload = function(){
         var banner_div = document.createElement('div');
         banner_div.setAttribute("id", "cfa_corner_ribbon");
         banner_div.setAttribute("style", "position:absolute; width:150px; "+
-                                "height:150px; top:0px; left:0px; "+
-                                "background:url(images/cfa_ribbon.png); z-index:100000 ");
+                                "height:150px; top:0px; left:0px;z-index:100000; "+
+                                "background:url(http://dthompson.github.com/cfa_banner/images/cfa_ribbon.png);");
+
         document.getElementsByTagName("body")[0].appendChild(banner_div);
     }else if(opts.type == "flag"){
         var banner_div = document.createElement('div');
         banner_div.setAttribute("id", "cfa_flag");
         banner_div.setAttribute("style", "position:absolute; width:238px; "+
-                                "height:321px; top:-200px; right:200px; "+
-                                "background:url(images/cfa_flag.png); z-index:100000;cursor:pointer; ");
+                                "height:321px; top:-200px; right:100px;z-index:100000;cursor:pointer; "+
+                                "background:url(http://dthompson.github.com/cfa_banner/images/cfa_flag.png); ");
         document.getElementsByTagName("body")[0].appendChild(banner_div);
 
         banner_div.addEventListener("mouseover", function(event){
@@ -60,8 +61,6 @@ window.onload = function(){
             };
             setTimeout(movebanner, 10);
         });
-    }else if(opts.type == "ribbon"){
-
     }
 
     if(other_onloads)other_onloads();
