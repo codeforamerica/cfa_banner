@@ -25,7 +25,7 @@ window.onload = function(){
         banner_div.setAttribute("id", "cfa_corner_ribbon");
         banner_div.setAttribute("style", "position:absolute; width:150px; "+
                                 "height:150px; top:0px; left:0px; "+
-                                "background:url(http://localhost:8000/images/cfa_ribbon.png); z-index:100000 ");
+                                "background:url(images/cfa_ribbon.png); z-index:100000 ");
         banner_forkme_link.setAttribute("style", banner_div.getAttribute("style"));
         banner_div.appendChild(banner_forkme_link);
         document.getElementsByTagName("body")[0].appendChild(banner_div);
@@ -34,7 +34,7 @@ window.onload = function(){
         banner_div.setAttribute("id", "cfa_corner_ribbon");
         banner_div.setAttribute("style", "position:absolute; width:150px; "+
                                 "height:150px; top:0px; right:0px; "+
-                                "background:url(http://localhost:8000/images/cfa_ribbon_right.png); z-index:100000 ");
+                                "background:url(images/cfa_ribbon_right.png); z-index:100000 ");
         banner_forkme_link.setAttribute("style", banner_div.getAttribute("style"));
         banner_div.appendChild(banner_forkme_link);
         document.getElementsByTagName("body")[0].appendChild(banner_div);
