@@ -15,13 +15,30 @@ window.onload = function(){
     }
 
     opts.type = opts.type || "corner";
+
+    var banner_forkme_link = document.createElement('a');
+    banner_forkme_link.setAttribute("href", opts.forkUrl);
+    banner_forkme_link.setAttribute("onclick", "window.open(this.href); return false;");
+
     if(opts.type == "corner"){
         var banner_div = document.createElement('div');
         banner_div.setAttribute("id", "cfa_corner_ribbon");
         banner_div.setAttribute("style", "position:absolute; width:150px; "+
                                 "height:150px; top:0px; left:0px;z-index:100000; "+
                                 "background:url(http://dthompson.github.com/cfa_banner/images/cfa_ribbon.png);");
-
+                                "height:150px; top:0px; left:0px; "+
+                                "background:url(images/cfa_ribbon.png); z-index:100000 ");
+        banner_forkme_link.setAttribute("style", banner_div.getAttribute("style"));
+        banner_div.appendChild(banner_forkme_link);
+        document.getElementsByTagName("body")[0].appendChild(banner_div);
+    }else if(opts.type == "corner-right"){
+        var banner_div = document.createElement('div');
+        banner_div.setAttribute("id", "cfa_corner_ribbon");
+        banner_div.setAttribute("style", "position:absolute; width:150px; "+
+                                "height:150px; top:0px; right:0px; "+
+                                "background:url(images/cfa_ribbon_right.png); z-index:100000 ");
+        banner_forkme_link.setAttribute("style", banner_div.getAttribute("style"));
+        banner_div.appendChild(banner_forkme_link);
         document.getElementsByTagName("body")[0].appendChild(banner_div);
     }else if(opts.type == "flag"){
         var banner_div = document.createElement('div');
@@ -61,6 +78,8 @@ window.onload = function(){
             };
             setTimeout(movebanner, 10);
         });
+    }else if(opts.type == "ribbon"){
+
     }
 
     if(other_onloads)other_onloads();
