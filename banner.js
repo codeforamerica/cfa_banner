@@ -26,8 +26,6 @@ window.onload = function(){
         banner_div.setAttribute("style", "position:absolute; width:150px; "+
                                 "height:150px; top:0px; left:0px;z-index:100000; "+
                                 "background:url(http://dthompson.github.com/cfa_banner/images/cfa_ribbon.png);");
-                                "height:150px; top:0px; left:0px; "+
-                                "background:url(images/cfa_ribbon.png); z-index:100000 ");
         banner_forkme_link.setAttribute("style", banner_div.getAttribute("style"));
         banner_div.appendChild(banner_forkme_link);
         document.getElementsByTagName("body")[0].appendChild(banner_div);
