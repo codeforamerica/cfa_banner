@@ -55,7 +55,7 @@ window.onload = function(){
         if(opts.color == "desaturated"){
           if (opts.size == "small") {
             banner_div.setAttribute("style", "position:absolute; width:120px; "+
-                                    "height:160px; top:-100px; right:200px; "+
+                                    "height:159px; top:-100px; right:200px; "+
                                     "background:url(images/cfa_flag_desaturated.png); z-index:100000;cursor:pointer; ");
           }
         }
