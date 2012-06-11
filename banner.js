@@ -3,6 +3,13 @@ if(window.onload){
 }
 
 window.onload = function(){
+    var dimensions = {
+      "small": {
+        "height": 159,
+        "width": 120,
+      }
+      
+    }
 
     var url = document.getElementById("cfa_banner_script").getAttribute("src");
     var opts = {}
@@ -44,14 +51,34 @@ window.onload = function(){
         banner_div.setAttribute("style", "position:absolute; width:238px; "+
                                 "height:321px; top:-200px; right:200px; "+
                                 "background:url(http://codeforamerica.github.com/cfa_banner/images/cfa_flag.png); z-index:100000;cursor:pointer; ");
+        
+        if(opts.color == "desaturated"){
+          if (opts.size == "small") {
+            banner_div.setAttribute("style", "position:absolute; width:120px; "+
+                                    "height:160px; top:-100px; right:200px; "+
+                                    "background:url(images/cfa_flag_desaturated.png); z-index:100000;cursor:pointer; ");
+          }
+        }
+        
+        
         document.getElementsByTagName("body")[0].appendChild(banner_div);
 
-        banner_div.addEventListener("mouseover", function(event){
-            banner_div.style.top = "-180px";
-        });
-        banner_div.addEventListener("mouseout", function(event){
-            banner_div.style.top = "-200px";
-        });
+        if (opts.size == "small") {
+          banner_div.addEventListener("mouseover", function(event){
+              banner_div.style.top = "-100px";
+          });
+          banner_div.addEventListener("mouseout", function(event){
+              banner_div.style.top = "-80px";
+          });
+        }else {
+          banner_div.addEventListener("mouseover", function(event){
+              banner_div.style.top = "-180px";
+          });
+          banner_div.addEventListener("mouseout", function(event){
+              banner_div.style.top = "-200px";
+          });
+        }
+        
         banner_div.addEventListener("click", function(event){
             var top = parseInt(banner_div.style.top);
             var direction = "down";
@@ -67,7 +94,10 @@ window.onload = function(){
                         setTimeout(movebanner, 10);
                     }
                 }else{
-                    if(top > -180){
+                  var min = -180;
+                  if (opts.size == "small") { min = -100};
+                
+                    if(top > min){
                         top -=5;
                         banner_div.style.top = top+"px";
                         setTimeout(movebanner, 10);
@@ -79,6 +109,7 @@ window.onload = function(){
     }else if(opts.type == "ribbon"){
 
     }
+    
 
     if(other_onloads)other_onloads();
 }
